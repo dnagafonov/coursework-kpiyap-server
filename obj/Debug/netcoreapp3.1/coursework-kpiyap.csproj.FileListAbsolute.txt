@@ -1,0 +1,10 @@
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\bin\Debug\netcoreapp3.1\coursework-kpiyap.exe
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\obj\Debug\netcoreapp3.1\coursework-kpiyap.csprojAssemblyReference.cache
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\obj\Debug\netcoreapp3.1\coursework-kpiyap.AssemblyInfoInputs.cache
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\obj\Debug\netcoreapp3.1\coursework-kpiyap.AssemblyInfo.cs
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\obj\Debug\netcoreapp3.1\coursework-kpiyap.RazorTargetAssemblyInfo.cache
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\obj\Debug\netcoreapp3.1\staticwebassets\coursework-kpiyap.StaticWebAssets.Manifest.cache
+C:\Users\malmas\Desktop\college\kpiyap\coursework-kpiyap\obj\Debug\netcoreapp3.1\staticwebassets\coursework-kpiyap.StaticWebAssets.xml
