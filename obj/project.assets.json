@@ -6201,11 +6201,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap\\coursework-kpiyap.csproj",
+      "projectUniqueName": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj",
       "projectName": "coursework-kpiyap",
-      "projectPath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap\\coursework-kpiyap.csproj",
+      "projectPath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj",
       "packagesPath": "C:\\Users\\malmas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap\\obj\\",
+      "outputPath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\malmas\\AppData\\Roaming\\NuGet\\NuGet.Config",

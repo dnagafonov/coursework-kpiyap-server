@@ -37,8 +37,8 @@ namespace coursework_kpiyap.Controllers
         public ActionResult<Service> Create(Service service)
         {
             _serviceService.Create(service);
-
-            return CreatedAtRoute("GetBook", new { id = service.Id.ToString() }, service);
+            System.Console.WriteLine(service);
+            return CreatedAtRoute("GetService", new { id = service.Id.ToString() }, service);
         }
 
         [HttpPut("{id:length(24)}")]

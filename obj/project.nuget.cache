@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z/LzrJEWvMnhgIYZ+UX3SinkPDbOg9zY4C87idKpwa3EUilwGytA0Y6sYH0Jq3Ug4iqrYJ57bVEWrDMmrvJHlQ==",
+  "dgSpecHash": "UPVt9CxcKT/ZD57+jw/LQf446sURdDW2LQj14zJ0CHqLp3Y2ylfD59DHf90TTouNKrRrVdMhMUjPJJxJBG4wUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap\\coursework-kpiyap.csproj",
+  "projectFilePath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\malmas\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
     "C:\\Users\\malmas\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
