@@ -11,9 +11,9 @@ namespace coursework_kpiyap.Controllers
     {
         private readonly ServiceService _serviceService;
 
-        public ServicesController(ServiceService bookService)
+        public ServicesController(ServiceService serviceService)
         {
-            _serviceService = bookService;
+            _serviceService = serviceService;
         }
 
         [HttpGet]

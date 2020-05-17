@@ -38,6 +38,14 @@ namespace coursework_kpiyap
 
             services.AddSingleton<SpareService>();
 
+            services.Configure<AccountStoreDatabaseSettings>(
+                Configuration.GetSection(nameof(AccountStoreDatabaseSettings)));
+
+            services.AddSingleton<IAccountStoreDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<AccountStoreDatabaseSettings>>().Value);
+
+            services.AddSingleton<AccountService>();
+
             services.AddControllers();
         }
 
