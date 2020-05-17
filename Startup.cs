@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using coursework_kpiyap.Models;
 using coursework_kpiyap.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +29,14 @@ namespace coursework_kpiyap
                 sp.GetRequiredService<IOptions<ServiceStoreDatabaseSettings>>().Value);
 
             services.AddSingleton<ServiceService>();
+
+            services.Configure<SpareStoreDatabaseSettings>(
+                Configuration.GetSection(nameof(SpareStoreDatabaseSettings)));
+
+            services.AddSingleton<ISpareStoreDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<SpareStoreDatabaseSettings>>().Value);
+
+            services.AddSingleton<SpareService>();
 
             services.AddControllers();
         }

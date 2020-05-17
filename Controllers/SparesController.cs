@@ -7,23 +7,23 @@ namespace coursework_kpiyap.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ServicesController : ControllerBase
+    public class SparesController : ControllerBase
     {
-        private readonly ServiceService _serviceService;
+        private readonly SpareService _spareService;
 
-        public ServicesController(ServiceService bookService)
+        public SparesController(SpareService spareService)
         {
-            _serviceService = bookService;
+            _spareService = spareService;
         }
 
         [HttpGet]
         public ActionResult<List<Service>> Get() =>
-            _serviceService.Get();
+            _spareService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetService")]
+        [HttpGet("{id:length(24)}", Name = "GetSpare")]
         public ActionResult<Service> Get(string id)
         {
-            var service = _serviceService.Get(id);
+            var service = _spareService.Get(id);
 
             if (service == null)
             {
@@ -36,21 +36,21 @@ namespace coursework_kpiyap.Controllers
         [HttpPost]
         public ActionResult<Service> Create(Service service)
         {
-            _serviceService.Create(service);
-            return CreatedAtRoute("GetService", new { id = service.Id.ToString() }, service);
+            _spareService.Create(service);
+            return CreatedAtRoute("GetSpare", new { id = service.Id.ToString() }, service);
         }
 
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Service serviceIn)
         {
-            var service = _serviceService.Get(id);
+            var service = _spareService.Get(id);
 
             if (service == null)
             {
                 return NotFound();
             }
 
-            _serviceService.Update(id, serviceIn);
+            _spareService.Update(id, serviceIn);
 
             return NoContent();
         }
@@ -58,14 +58,14 @@ namespace coursework_kpiyap.Controllers
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {
-            var service = _serviceService.Get(id);
+            var service = _spareService.Get(id);
 
             if (service == null)
             {
                 return NotFound();
             }
 
-            _serviceService.Remove(service.Id);
+            _spareService.Remove(service.Id);
 
             return NoContent();
         }
