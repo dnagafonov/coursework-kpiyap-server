@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj": {}
+    "G:\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj": {}
   },
   "projects": {
-    "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj": {
+    "G:\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj",
+        "projectUniqueName": "G:\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj",
         "projectName": "coursework-kpiyap",
-        "projectPath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj",
+        "projectPath": "G:\\college\\kpiyap\\coursework-kpiyap-server\\coursework-kpiyap.csproj",
         "packagesPath": "C:\\Users\\malmas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\malmas\\Desktop\\college\\kpiyap\\coursework-kpiyap-server\\obj\\",
+        "outputPath": "G:\\college\\kpiyap\\coursework-kpiyap-server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\malmas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,6 +41,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.10.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             }
           },
           "imports": [

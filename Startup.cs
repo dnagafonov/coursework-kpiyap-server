@@ -22,6 +22,15 @@ namespace coursework_kpiyap
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("httpû://example.com");
+                    });
+            });
+
             services.Configure<ServiceStoreDatabaseSettings>(
                 Configuration.GetSection(nameof(ServiceStoreDatabaseSettings)));
 
@@ -60,6 +69,8 @@ namespace coursework_kpiyap
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

@@ -18,6 +18,6 @@ namespace coursework_kpiyap.Models
 
         public string currency { get; set; }
 
-        public BsonArray cart { get; set; }
+        public List<Service> cart { get; set; }
     }
 }
