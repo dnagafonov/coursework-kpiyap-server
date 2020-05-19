@@ -1,5 +1,6 @@
 ﻿using coursework_kpiyap.Models;
 using coursework_kpiyap.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -19,7 +20,7 @@ namespace coursework_kpiyap.Controllers
         [HttpGet]
         public ActionResult<List<Service>> Get() =>
             _spareService.Get();
-
+        [EnableCors("Policy1")]
         [HttpGet("{id:length(24)}", Name = "GetSpare")]
         public ActionResult<Service> Get(string id)
         {

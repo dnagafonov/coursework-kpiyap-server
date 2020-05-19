@@ -20,6 +20,9 @@ namespace coursework_kpiyap.Services
         public List<Account> Get() =>
             _accounts.Find(account => true).ToList();
 
+        public Account Find(string username, string password) =>
+            _accounts.Find(account => account.username.Equals(username) && account.password.Equals(password)).FirstOrDefault();
+
         public Account Get(string id) =>
             _accounts.Find<Account>(account => account.Id == id).FirstOrDefault();
 

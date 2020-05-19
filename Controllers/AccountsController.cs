@@ -1,6 +1,8 @@
 ﻿using coursework_kpiyap.Models;
 using coursework_kpiyap.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace coursework_kpiyap.Controllers
@@ -19,6 +21,24 @@ namespace coursework_kpiyap.Controllers
         [HttpGet]
         public ActionResult<List<Account>> Get() =>
             _accountService.Get();
+
+        [HttpPost("login")]
+        public JsonResult Login([FromBody]LoginCreds loginCreds)
+        {
+            if (_accountService.Find(loginCreds.Username, loginCreds.Password) != null)
+                return new JsonResult(new { status = 302 });
+            else 
+                return new JsonResult(new { status = 404 });
+        }
+
+        [HttpPost("register")]
+        public JsonResult Login([FromBody]Account registerCreds)
+        {
+            if (_accountService.Create(registerCreds) != null)
+                return new JsonResult(new { status = 302 });
+            else
+                return new JsonResult(new { status = 404 });
+        }
 
         [HttpGet("{id:length(24)}", Name = "GetAccount")]
         public ActionResult<Account> Get(string id)
