@@ -32,9 +32,9 @@ namespace coursework_kpiyap.Controllers
         }
 
         [HttpPost("register")]
-        public JsonResult Login([FromBody]Account registerCreds)
+        public JsonResult Login([FromBody]Account account)
         {
-            if (_accountService.Create(registerCreds) != null)
+            if (_accountService.Create(account) != null)
                 return new JsonResult(new { status = 302 });
             else
                 return new JsonResult(new { status = 404 });

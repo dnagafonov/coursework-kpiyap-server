@@ -80,3 +80,4 @@ G:\college\kpiyap\coursework-kpiyap-server\obj\Debug\netcoreapp3.1\coursework-kp
 G:\college\kpiyap\coursework-kpiyap-server\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 G:\college\kpiyap\coursework-kpiyap-server\obj\Debug\netcoreapp3.1\coursework-kpiyap.csproj.CoreCompileInputs.cache
 G:\college\kpiyap\coursework-kpiyap-server\obj\Debug\netcoreapp3.1\coursework-kpiyap.MvcApplicationPartsAssemblyInfo.cache
+G:\college\kpiyap\coursework-kpiyap-server\bin\Debug\netcoreapp3.1\web.config
