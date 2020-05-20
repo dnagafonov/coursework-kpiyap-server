@@ -27,7 +27,7 @@ namespace coursework_kpiyap
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("httpû://example.com");
+                        builder.WithOrigins("https://localhost:4413");
                     });
             });
 
