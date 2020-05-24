@@ -46,10 +46,7 @@ namespace coursework_kpiyap.Controllers
         [HttpPost("register")]
         public JsonResult Login([FromBody]Account account)
         {
-            if (_accountService.Create(account) != null)
-                return new JsonResult(new { status = 302 });
-            else
-                return new JsonResult(new { status = 404 });
+            return _accountService.Create(account);
         }
 
         [HttpGet("{id:length(24)}", Name = "GetAccount")]

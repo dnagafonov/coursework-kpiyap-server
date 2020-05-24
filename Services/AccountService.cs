@@ -1,4 +1,5 @@
 ﻿using coursework_kpiyap.Models;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
@@ -16,6 +17,14 @@ namespace coursework_kpiyap.Services
             var database = client.GetDatabase(settings.DatabaseName);
 
             _accounts = database.GetCollection<Account>(settings.AccountsCollectionName);
+            var indexEmail = Builders<Account>.IndexKeys.Ascending("email");
+            var indexUsername = Builders<Account>.IndexKeys.Ascending("username");
+            var indexOptions = new CreateIndexOptions { Unique = true };
+            var modelEmail = new CreateIndexModel<Account>(indexEmail, indexOptions);
+            var modelUsername = new CreateIndexModel<Account>(indexUsername, indexOptions);
+
+            _accounts.Indexes.CreateOne(modelEmail);
+            _accounts.Indexes.CreateOne(modelUsername);
         }
 
         public Account AddToCart(string id, Service service)
@@ -24,14 +33,13 @@ namespace coursework_kpiyap.Services
             var update = Builders<Account>.Update.Push("cart", service);
             _accounts.UpdateOne(filter, update).ToJson();
             return _accounts.Find(account => account.Id == id).FirstOrDefault();
-
         }
 
         public Account DeleteFromCart(string id, Service service)
         {
             var filter = Builders<Account>.Filter.Where(x => x.Id == id);
             //ability to add more fields to filter
-            var update = Builders<Account>.Update.PullFilter("cart", Builders<Service>.Filter.Eq(e => e.Id, service.Id));
+            var update = Builders<Account>.Update.PullFilter("cart", Builders<Service>.Filter.Eq(e => e._id, service._id));
             _accounts.UpdateOne(filter, update);
             return _accounts.Find(account => account.Id == id).FirstOrDefault();
         }
@@ -45,10 +53,17 @@ namespace coursework_kpiyap.Services
         public Account Get(string id) =>
             _accounts.Find<Account>(account => account.Id == id).FirstOrDefault();
 
-        public Account Create(Account account)
+        public JsonResult Create(Account account)
         {
-            _accounts.InsertOne(account);
-            return account;
+            try
+            {
+                _accounts.InsertOne(account);
+                return new JsonResult(new { status= 200, account });
+            }
+            catch
+            {
+                return new JsonResult(new { status= 404 });
+            }
         }
 
         public void Update(string id, Account accountIn) =>
