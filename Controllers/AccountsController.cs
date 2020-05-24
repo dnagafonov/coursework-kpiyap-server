@@ -31,6 +31,18 @@ namespace coursework_kpiyap.Controllers
                 return new JsonResult(new { status = 404 });
         }
 
+        [HttpPost("cart/add")]
+        public JsonResult AddToCart([FromBody]CardCreds cardCreds)
+        {
+            return new JsonResult(new { account = _accountService.AddToCart(cardCreds.Id, cardCreds.service)} );
+        }
+
+        [HttpPost("cart/delete")]
+        public JsonResult DeleteFromCart([FromBody]CardCreds cardCreds)
+        {
+            return new JsonResult(new { account = _accountService.DeleteFromCart(cardCreds.Id, cardCreds.service) });
+        }
+
         [HttpPost("register")]
         public JsonResult Login([FromBody]Account account)
         {
