@@ -38,7 +38,7 @@ namespace coursework_kpiyap.Controllers
         public ActionResult<Service> Create(Service service)
         {
             _spareService.Create(service);
-            return CreatedAtRoute("GetSpare", new { id = service.Id.ToString() }, service);
+            return CreatedAtRoute("GetSpare", new { id = service._id.ToString() }, service);
         }
 
         [HttpPut("{id:length(24)}")]
@@ -66,7 +66,7 @@ namespace coursework_kpiyap.Controllers
                 return NotFound();
             }
 
-            _spareService.Remove(service.Id);
+            _spareService.Remove(service._id);
 
             return NoContent();
         }

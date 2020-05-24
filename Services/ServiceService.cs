@@ -21,7 +21,7 @@ namespace coursework_kpiyap.Services
             _services.Find(service => true).ToList();
 
         public Service Get(string id) =>
-            _services.Find<Service>(service => service.Id == id).FirstOrDefault();
+            _services.Find<Service>(service => service._id == id).FirstOrDefault();
 
         public Service Create(Service service)
         {
@@ -30,13 +30,13 @@ namespace coursework_kpiyap.Services
         }
 
         public void Update(string id, Service serviceIn) =>
-            _services.ReplaceOne(service => service.Id == id, serviceIn);
+            _services.ReplaceOne(service => service._id == id, serviceIn);
 
         public void Remove(Service serviceIn) =>
-            _services.DeleteOne(service => service.Id == serviceIn.Id);
+            _services.DeleteOne(service => service._id == serviceIn._id);
 
         public void Remove(string id) =>
-            _services.DeleteOne(service => service.Id == id);
+            _services.DeleteOne(service => service._id == id);
 
     }
 }
