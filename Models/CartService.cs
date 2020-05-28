@@ -1,23 +1,24 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System.Collections.Generic;
 
 namespace coursework_kpiyap.Models
 {
-    public class Account
+    public class CartService
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
 
-        public string username { get; set; }
+        public string type { get; set; }
 
-        public string password { get; set; }
+        public string name { get; set; }
+
+        public double price { get; set; }
 
         public string currency { get; set; }
 
-        public string email { get; set; }
+        public string description { get; set; }
 
-        public List<CartService> cart { get; set; }
+        public CurrentPrice currentPrice { get; set; }
     }
 }

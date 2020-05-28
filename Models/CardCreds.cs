@@ -8,6 +8,6 @@ namespace coursework_kpiyap.Models
     public class CardCreds
     {
         public string Id { get; set; }
-        public Service service { get; set; }
+        public CartService service { get; set; }
     }
 }
