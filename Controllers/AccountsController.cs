@@ -18,29 +18,35 @@ namespace coursework_kpiyap.Controllers
             _accountService = accountService;
         }
 
-        [HttpGet]
-        public ActionResult<List<Account>> Get() =>
-            _accountService.Get();
-
         [HttpPost("login")]
         public JsonResult Login([FromBody]LoginCreds loginCreds)
         {
-            if (_accountService.Find(loginCreds.Username, loginCreds.Password) != null)
-                return new JsonResult(new { status = 302 });
+            var account = _accountService.Find(loginCreds.Username, loginCreds.Password);
+            if (account != null)
+                return new JsonResult(new {
+                    status = 200,
+                    account = new { 
+                        _id = account._id,
+                        username = account.username,
+                        email = account.email,
+                        currency = account.currency,
+                        cart = account.cart
+                    }
+                });
             else 
                 return new JsonResult(new { status = 404 });
         }
 
         [HttpPost("cart/add")]
-        public JsonResult AddToCart([FromBody]CardCreds cardCreds)
+        public JsonResult AddToCart([FromBody]CartCredsAdd cardCreds)
         {
-            return new JsonResult(new { account = _accountService.AddToCart(cardCreds.Id, cardCreds.service)} );
+            return _accountService.AddToCart(cardCreds.Id, cardCreds.service);
         }
 
         [HttpPost("cart/delete")]
-        public JsonResult DeleteFromCart([FromBody]CardCreds cardCreds)
+        public JsonResult DeleteFromCart([FromBody]CartCredsDelete cardCreds)
         {
-            return new JsonResult(new { account = _accountService.DeleteFromCart(cardCreds.Id, cardCreds.service) });
+            return _accountService.DeleteFromCart(cardCreds.Id, cardCreds.service);
         }
 
         [HttpPost("register")]
@@ -66,7 +72,7 @@ namespace coursework_kpiyap.Controllers
         public ActionResult<Service> Create(Account account)
         {
             _accountService.Create(account);
-            return CreatedAtRoute("GetAccount", new { id = account.Id.ToString() }, account);
+            return CreatedAtRoute("GetAccount", new { id = account._id.ToString() }, account);
         }
 
         [HttpPut("{id:length(24)}")]
@@ -80,21 +86,6 @@ namespace coursework_kpiyap.Controllers
             }
 
             _accountService.Update(id, accountIn);
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id:length(24)}")]
-        public IActionResult Delete(string id)
-        {
-            var service = _accountService.Get(id);
-
-            if (service == null)
-            {
-                return NotFound();
-            }
-
-            _accountService.Remove(service.Id);
 
             return NoContent();
         }

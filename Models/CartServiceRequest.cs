@@ -3,9 +3,8 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace coursework_kpiyap.Models
 {
-    public class Service
+    public class CartServiceRequest
     {
-        [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
 
@@ -14,6 +13,8 @@ namespace coursework_kpiyap.Models
         public string name { get; set; }
 
         public double price { get; set; }
+
+        public string currency { get; set; }
 
         public string description { get; set; }
 

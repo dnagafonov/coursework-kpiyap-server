@@ -8,16 +8,16 @@ namespace coursework_kpiyap.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string _id { get; set; }
 
         public string username { get; set; }
 
         public string password { get; set; }
 
-        public string email { get; set; }
-
         public string currency { get; set; }
 
-        public List<Service> cart { get; set; }
+        public string email { get; set; }
+
+        public List<CartServiceResponse> cart { get; set; }
     }
 }
