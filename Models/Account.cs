@@ -18,6 +18,6 @@ namespace coursework_kpiyap.Models
 
         public string email { get; set; }
 
-        public List<CartService> cart { get; set; }
+        public List<CartServiceResponse> cart { get; set; }
     }
 }

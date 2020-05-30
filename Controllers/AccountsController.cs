@@ -38,15 +38,15 @@ namespace coursework_kpiyap.Controllers
         }
 
         [HttpPost("cart/add")]
-        public JsonResult AddToCart([FromBody]CardCreds cardCreds)
+        public JsonResult AddToCart([FromBody]CartCredsAdd cardCreds)
         {
-            return new JsonResult(_accountService.AddToCart(cardCreds.Id, cardCreds.service));
+            return _accountService.AddToCart(cardCreds.Id, cardCreds.service);
         }
 
         [HttpPost("cart/delete")]
-        public JsonResult DeleteFromCart([FromBody]CardCreds cardCreds)
+        public JsonResult DeleteFromCart([FromBody]CartCredsDelete cardCreds)
         {
-            return new JsonResult(new { account = _accountService.DeleteFromCart(cardCreds.Id, cardCreds.service) });
+            return _accountService.DeleteFromCart(cardCreds.Id, cardCreds.service);
         }
 
         [HttpPost("register")]

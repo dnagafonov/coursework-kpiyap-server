@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace coursework_kpiyap.Models
 {
-    public class CardCreds
+    public class CartCredsAdd
     {
         public string Id { get; set; }
-        public CartService service { get; set; }
+        public CartServiceRequest service { get; set; }
     }
 }
