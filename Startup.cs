@@ -55,6 +55,14 @@ namespace coursework_kpiyap
 
             services.AddSingleton<AccountService>();
 
+            services.Configure<OfferStoreDatabaseSettings>(
+                Configuration.GetSection(nameof(OfferStoreDatabaseSettings)));
+
+            services.AddSingleton<IOfferStoreDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<OfferStoreDatabaseSettings>>().Value);
+
+            services.AddSingleton<OfferService>();
+
             services.AddControllers();
         }
 
