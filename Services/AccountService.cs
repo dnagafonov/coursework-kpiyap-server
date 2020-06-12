@@ -35,7 +35,6 @@ namespace coursework_kpiyap.Services
                 var filter = Builders<Account>.Filter.Where(x => x._id == id);
                 var res = new CartServiceResponse();
                 res._id = ObjectId.GenerateNewId().ToString();
-                res.currency = service.currency;
                 res.name = service.name;
                 res.price = service.price;
                 res.serviceId = service._id;
@@ -59,6 +58,21 @@ namespace coursework_kpiyap.Services
                 var filter = Builders<Account>.Filter.Where(x => x._id == id);
                 //ability to add more fields to filter
                 var update = Builders<Account>.Update.PullFilter("cart", Builders<CartServiceResponse>.Filter.Eq(e => e._id, service._id));
+                _accounts.UpdateOne(filter, update);
+                return new JsonResult(new { status = 200, cart = _accounts.Find(account => account._id == id).FirstOrDefault().cart });
+            }
+            catch (Exception e)
+            {
+                return new JsonResult(new { status = 400, error = e.Message });
+            }
+        }
+
+        public JsonResult DropCart(string id)
+        {
+            try
+            {
+                var filter = Builders<Account>.Filter.Where(x => x._id == id);
+                var update = Builders<Account>.Update.PullFilter("cart", Builders<CartServiceResponse>.Filter.Where(e => true));
                 _accounts.UpdateOne(filter, update);
                 return new JsonResult(new { status = 200, cart = _accounts.Find(account => account._id == id).FirstOrDefault().cart });
             }

@@ -14,8 +14,6 @@ namespace coursework_kpiyap.Models
 
         public double price { get; set; }
 
-        public string currency { get; set; }
-
         public string description { get; set; }
 
         public CurrentPrice currentPrice { get; set; }
