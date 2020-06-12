@@ -49,6 +49,12 @@ namespace coursework_kpiyap.Controllers
             return _accountService.DeleteFromCart(cardCreds.Id, cardCreds.service);
         }
 
+        [HttpPost("cart/drop")]
+        public JsonResult DropCart([FromBody]DropCartCreds creds)
+        {
+            return _accountService.DropCart(creds.id);
+        }
+
         [HttpPost("register")]
         public JsonResult Login([FromBody]Account account)
         {
