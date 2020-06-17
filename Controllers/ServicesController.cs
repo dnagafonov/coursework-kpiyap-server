@@ -23,7 +23,7 @@ namespace coursework_kpiyap.Controllers
 
         [HttpGet("{id:length(24)}", Name = "GetService")]
         public ActionResult<Service> Get(string id)
-        {
+         {
             var service = _serviceService.Get(id);
 
             if (service == null)

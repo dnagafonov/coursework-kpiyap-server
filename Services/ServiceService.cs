@@ -16,7 +16,7 @@ namespace coursework_kpiyap.Services
 
             _services = database.GetCollection<Service>(settings.ServicesCollectionName);
         }
-
+        //CRUD API
         public List<Service> Get() =>
             _services.Find(service => true).ToList();
 

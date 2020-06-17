@@ -27,7 +27,7 @@ namespace coursework_kpiyap.Services
             _accounts.Indexes.CreateOne(modelEmail);
             _accounts.Indexes.CreateOne(modelUsername);
         }
-
+        //ADD GOOD TO USER'S CART
         public JsonResult AddToCart(string id, CartServiceRequest service)
         {
             try
@@ -50,7 +50,7 @@ namespace coursework_kpiyap.Services
                 return new JsonResult(new { status = 400, error = e.Message });
             }
         }
-
+        //DELETE GOOD FROM USER'S CART
         public JsonResult DeleteFromCart(string id, CartServiceResponse service)
         {
             try
@@ -66,7 +66,7 @@ namespace coursework_kpiyap.Services
                 return new JsonResult(new { status = 400, error = e.Message });
             }
         }
-
+        //CLEAR USER CART
         public JsonResult DropCart(string id)
         {
             try
@@ -81,12 +81,15 @@ namespace coursework_kpiyap.Services
                 return new JsonResult(new { status = 400, error = e.Message });
             }
         }
-
+        //CRUD API
         public List<Account> Get() =>
             _accounts.Find(account => true).ToList();
 
         public Account Find(string username, string password) =>
             _accounts.Find(account => account.username.Equals(username) && account.password.Equals(password)).FirstOrDefault();
+
+        public Account Find(string username) =>
+            _accounts.Find(account => account.username.Equals(username)).FirstOrDefault();
 
         public Account Get(string id) =>
             _accounts.Find<Account>(account => account._id == id).FirstOrDefault();

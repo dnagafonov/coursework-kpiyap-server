@@ -16,7 +16,7 @@ namespace coursework_kpiyap.Services
 
             _spares = database.GetCollection<Service>(settings.SparesCollectionName);
         }
-
+        //CRUD API
         public List<Service> Get() =>
             _spares.Find(spare => true).ToList();
 
