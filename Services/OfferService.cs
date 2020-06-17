@@ -18,7 +18,7 @@ namespace coursework_kpiyap.Services
 
             _offers = database.GetCollection<Offer>(settings.OffersCollectionName);
         }
-
+        //CREATE OFFER METHOD
         public JsonResult Create(Offer offer)
         {
             try

@@ -17,7 +17,7 @@ namespace coursework_kpiyap.Controllers
         {
             _accountService = accountService;
         }
-
+        //ROUTE TO LOGIN INTO SYSTEM
         [HttpPost("login")]
         public JsonResult Login([FromBody]LoginCreds loginCreds)
         {
@@ -36,64 +36,33 @@ namespace coursework_kpiyap.Controllers
             else 
                 return new JsonResult(new { status = 404 });
         }
-
+        //ROUTE TO ADD GOOD TO CART
         [HttpPost("cart/add")]
         public JsonResult AddToCart([FromBody]CartCredsAdd cardCreds)
         {
             return _accountService.AddToCart(cardCreds.Id, cardCreds.service);
         }
-
+        //ROUTE TO DELETE GOOD FROM CART
         [HttpPost("cart/delete")]
         public JsonResult DeleteFromCart([FromBody]CartCredsDelete cardCreds)
         {
             return _accountService.DeleteFromCart(cardCreds.Id, cardCreds.service);
         }
-
+        //ROUTE TO CLEAR CART
         [HttpPost("cart/drop")]
         public JsonResult DropCart([FromBody]DropCartCreds creds)
         {
             return _accountService.DropCart(creds.id);
         }
-
+        //ROUTE TO REGISTER INTO SYSTEM
         [HttpPost("register")]
-        public JsonResult Login([FromBody]Account account)
+        public JsonResult Register([FromBody]Account account)
         {
+            if(_accountService.Find(account.username) != null)
+            {
+                return new JsonResult(new { status = 400, error = "User already exists..." }); ;
+            }
             return _accountService.Create(account);
-        }
-
-        [HttpGet("{id:length(24)}", Name = "GetAccount")]
-        public ActionResult<Account> Get(string id)
-        {
-            var service = _accountService.Get(id);
-
-            if (service == null)
-            {
-                return NotFound();
-            }
-
-            return service;
-        }
-
-        [HttpPost]
-        public ActionResult<Service> Create(Account account)
-        {
-            _accountService.Create(account);
-            return CreatedAtRoute("GetAccount", new { id = account._id.ToString() }, account);
-        }
-
-        [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, Account accountIn)
-        {
-            var account = _accountService.Get(id);
-
-            if (account == null)
-            {
-                return NotFound();
-            }
-
-            _accountService.Update(id, accountIn);
-
-            return NoContent();
         }
     }
 
